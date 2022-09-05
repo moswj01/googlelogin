@@ -47,7 +47,8 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:4000/auth/google/callback",
+      callbackURL:
+        "https://social-login-ynn5f.ondigitalocean.app/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       userProfile = profile;
