@@ -67,9 +67,13 @@
             <h1><span class="fa fa-lock"></span> Social Authentication</h1>
             <p>Login or Register with:</p>
             <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
-            <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with"
-                data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            <!-- <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with"
+                data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
 
+            <div id="status">
+            </div>
         </div>
 </body>
 
