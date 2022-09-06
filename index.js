@@ -37,7 +37,45 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
+//-------------Facebook-----------
 
+const facebookStrategy = require("passport-facebook").Strategy;
+
+passport.use(
+  new facebookStrategy(
+    {
+      clientID: "8065015853540979",
+      clientSecret: "1095833d329fa17a8d4a375b072cbaa8",
+      callbackURL:
+        "https://social-login-ynn5f.ondigitalocean.app/auth/facebook/callback",
+      profileFields: [
+        "id",
+        "displayName",
+        "name",
+        "gender",
+        "picture.type(large)",
+        "email",
+      ],
+    },
+    function (accessToken, refreshToken, profile, done) {
+      userProfile = profile;
+      return done(null, userProfile);
+    }
+  )
+);
+
+app.get(
+  "auth/facebook",
+  passport.authenticate("facebook", { scope: "email,user_photos" })
+);
+app.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: "/profile",
+    failureRedirect: "/",
+  })
+);
+//------------Google Login-----------
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const GOOGLE_CLIENT_ID =
   "949255951485-ducdu81p9uqlnttq9paulh10b0tceioj.apps.googleusercontent.com";
