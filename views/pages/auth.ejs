@@ -12,6 +12,11 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v14.0&appId=8065015853540979&autoLogAppEvents=1"
+        nonce="nE6JFUaL"></script>
+    </div>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -35,10 +40,10 @@
             <h1><span class="fa fa-lock"></span> Social Authentication</h1>
             <p>Login or Register with:</p>
             <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
-            <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> SignIn with
-                Facebook</a>
+            <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with"
+                data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
         </div>
-    </div>
 </body>
 
 </html>
